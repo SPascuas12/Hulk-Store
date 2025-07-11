@@ -30,7 +30,7 @@ public class ProductoService {
     }
 
     public List<Producto> obtenerPorStockYCategoria(int stock, String categoria) {
-        return productoRepository.buscarPorStockYCategoria(stock, categoria);
+        return productoRepository.findByStockGreaterThanEqualAndCategoriaIgnoreCase(stock, categoria);
     }
 
 }

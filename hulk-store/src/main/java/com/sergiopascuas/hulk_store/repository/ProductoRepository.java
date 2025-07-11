@@ -10,6 +10,5 @@ import java.util.List;
 
 @Repository
 public interface ProductoRepository extends JpaRepository<Producto, Long> {
-    @Query("SELECT p FROM Producto p WHERE p.stock > :stock AND p.categoria = :categoria")
-    List<Producto> buscarPorStockYCategoria(@Param("stock") int stock, @Param("categoria") String categoria);
+    List<Producto> findByStockGreaterThanEqualAndCategoriaIgnoreCase(int stock, String categoria);
 }
